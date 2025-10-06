@@ -2,46 +2,76 @@
 const products = [
     {
         id: 1,
-        name: "Cadeira de Escritório Minimalista",
-        price: 599.99,
-        image: "image/cadeira.avif"
+        name: "Teclado Kumara Pro Gamer RGB",
+        price: 259.99,
+        image: "image/kumara.png"
     },
     {
         id: 2,
-        name: "Mesa de Centro Moderna",
-        price: 349.99,
-        image: "image/mesa.webp"
+        name: "Mouse Gamer Attack Shark x11",
+        price: 179.99,
+        image: "image/attackshark.png"
     },
     {
         id: 3,
-        name: "Luminária de Mesa Elegante",
-        price: 129.99,
-        image: "image/luminaria.avif"
+        name: "Fuxi-H3 HeadSet Gamer",
+        price: 199.99,
+        image: "image/fuxi-h3.png"
     },
     {
         id: 4,
-        name: "Vaso Decorativo Cerâmica",
-        price: 79.99,
-        image: "image/vaso.avif"
+        name: "Monitor Gamer Samsung T350 75hz",
+        price: 749.99,
+        image: "image/t350.png"
     },
     {
         id: 5,
-        name: "Conjunto de Canetas Premium",
-        price: 45.99,
-        image: "image/caneta.avif"
+        name: "Computador Gamer Neologic White",
+        price: 2399.99,
+        image: "image/pc.png"
     },
     {
         id: 6,
-        name: "Caderno de Notas Capa Dura",
-        price: 29.99,
-        image: "image/caderno.avif"
+        name: "MousePad Force One Speed",
+        price: 59.99,
+        image: "image/forceone.png"
     },
     {
         id: 7,
-        name: "Sofá elegante<br>vintage",
-        price: 799.99,
-        image: "image/sofa.avif"
-    }
+        name: "Processador AMD Ryzen 5 5600g",
+        price: 1200.99,
+        image: "image/5600.png"
+    },
+    {
+        id: 8,
+        name: " Placa de Video NVIDIA RTX 4060",
+        price: 2714.99,
+        image: "image/rtx4060.png"
+    },
+    {
+        id: 9,
+        name: "KIT 3 fans ARGB Rise Mode",
+        price: 99.99,
+        image: "image/fansargb.png"
+    },
+    {
+        id: 10,
+        name: "Water Cooler Rise Mode RGB",
+        price: 250.99,
+        image: "image/watercooler.png"
+    },
+    {
+        id: 11,
+        name: "Controle Gamesir Nova Lite",
+        price: 179.99,
+        image: "image/novalite.png"
+    },
+    {
+        id: 12,
+        name: "Placa Mãe Gigabyte B550m",
+        price: 789.99,
+        image: "image/b550m.png"
+    },
 ];
 
 // Estado do carrinho
@@ -171,7 +201,7 @@ function showNotification(message) {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background-color: #2ecc71;
+        background-color: #2A1B3D;
         color: white;
         padding: 12px 20px;
         border-radius: 4px;

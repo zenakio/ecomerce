@@ -7,15 +7,14 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #150b25;
+    color: #D3D3D3;
     line-height: 1.6;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: #150b25;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -30,14 +29,28 @@ header {
     margin: 0 auto;
 }
 
+.titulo2 {
+    background-color: #2A1B3D;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 50px;
+    border-style: outset;
+}
+
+.sobre123 {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #D3D3D3;
 }
 
 .logo span {
-    color: #3498db;
+    color: #af8aeb;
 }
 
 nav ul {
@@ -51,7 +64,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: #D3D3D3;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -82,10 +95,16 @@ nav ul li a:hover {
 
 /* Banner principal */
 .hero {
-    background-color: #3498db;
-    color: white;
+    background-image: url(https://i.pinimg.com/originals/c7/2d/14/c72d14aeeb05acf7eefc46c3035b471d.gif);
+    color: #ffffff;
     padding: 4rem 2rem;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    
+    
 }
 
 .hero h1 {
@@ -93,25 +112,21 @@ nav ul li a:hover {
     margin-bottom: 1rem;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-}
 
 .btn {
     display: inline-block;
-    background-color: #fff;
-    color: #3498db;
+    background-color: #2A1B3D;
+    color: #ffffff;
     padding: 0.8rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 100px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
+    border-style: outset;
 }
 
 .btn:hover {
-    background-color: #f1f1f1;
+    background-color: #000000;
     transform: translateY(-2px);
 }
 
@@ -126,7 +141,7 @@ nav ul li a:hover {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: #2c3e50;
+    color: #D3D3D3;
 }
 
 .products-grid {
@@ -136,7 +151,7 @@ nav ul li a:hover {
 }
 
 .product-card {
-    background-color: white;
+    background-color: #2A1B3D;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -161,21 +176,21 @@ nav ul li a:hover {
 .product-title {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #2c3e50;
+    color: #D3D3D3;
 }
 
 .product-price {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #3498db;
+    color: #2ECC71;
     margin-bottom: 1rem;
 }
 
 .add-to-cart {
     width: 100%;
     padding: 0.7rem;
-    background-color: #3498db;
-    color: white;
+    background-color: #150b25;
+    color: #D3D3D3;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -184,7 +199,7 @@ nav ul li a:hover {
 }
 
 .add-to-cart:hover {
-    background-color: #2980b9;
+    background-color: #000000;
 }
 
 /* Carrinho lateral */
@@ -194,7 +209,7 @@ nav ul li a:hover {
     right: -400px;
     width: 350px;
     height: 100vh;
-    background-color: white;
+    background-color: #150b25;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     transition: right 0.3s ease;
@@ -252,7 +267,7 @@ nav ul li a:hover {
 }
 
 .cart-item-price {
-    color: #3498db;
+    color: #2ECC71;
     font-weight: 600;
 }
 
@@ -274,7 +289,7 @@ nav ul li a:hover {
 .checkout-btn {
     width: 100%;
     padding: 1rem;
-    background-color: #2ecc71;
+    background-color: #2A1B3D;
     color: white;
     border: none;
     border-radius: 4px;
@@ -284,7 +299,7 @@ nav ul li a:hover {
 }
 
 .checkout-btn:hover {
-    background-color: #27ae60;
+    background-color: #000000;
 }
 
 /* Overlay para o carrinho */
@@ -305,7 +320,7 @@ nav ul li a:hover {
 
 /* Rodapé */
 footer {
-    background-color: #2c3e50;
+    background-color: #2A1B3D;
     color: white;
     padding: 3rem 2rem;
     text-align: center;
