@@ -14,11 +14,12 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #150b25;
+    background-color: #2a1b3d;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 4px 10px rgba(175, 138, 235, 0.3);
 }
 
 .header-container {
@@ -29,28 +30,52 @@ header {
     margin: 0 auto;
 }
 
-.titulo2 {
-    background-color: #2A1B3D;
-    width: 500px;
-    margin: 0 auto;
-    border-radius: 50px;
-    border-style: outset;
-}
-
 .sobre123 {
     width: 1000px;
     margin: 0 auto;
     text-align: justify;
 }
 
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+}
+
+tr,
+td {
+    border: 2px solid #2A1B3D;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #150b25;
+}
+
+.sigma {
+    background-color: #2A1B3D;
+    color: #ddd;
+}
+
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #D3D3D3;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(175, 138, 235, 0.4);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    text-shadow: 2px 2px 10px rgba(175, 138, 235, 0.8); /* brilho ao passar o mouse */
+    transform: scale(1.03);
 }
 
 .logo span {
     color: #af8aeb;
+    font-weight: 900;
 }
 
 nav ul {
@@ -95,40 +120,45 @@ nav ul li a:hover {
 
 /* Banner principal */
 .hero {
-    background-image: url(https://i.pinimg.com/originals/c7/2d/14/c72d14aeeb05acf7eefc46c3035b471d.gif);
-    color: #ffffff;
-    padding: 4rem 2rem;
-    text-align: center;
-    background-repeat: no-repeat;
+    background-image: url(https://cdn.wallpapersafari.com/30/0/n0HOqk.gif);
     background-size: cover;
     background-position: center;
-
-    
-    
+    background-repeat: no-repeat;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    color: #ffffff;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 10px #000000;
 }
-
 
 .btn {
     display: inline-block;
-    background-color: #2A1B3D;
+    background-color: rgba(0, 0, 0, 0.4);
     color: #ffffff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 100px;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    border: 2px solid #ffffff50;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    border-style: outset;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
 }
 
 .btn:hover {
-    background-color: #000000;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #af8aeb;
+    color: #fff;
     transform: translateY(-2px);
 }
+
 
 /* Seção de produtos */
 .products {
@@ -320,10 +350,22 @@ nav ul li a:hover {
 
 /* Rodapé */
 footer {
+    margin: 0;
+    padding: 0;
     background-color: #2A1B3D;
     color: white;
     padding: 3rem 2rem;
     text-align: center;
+    margin-left: calc(-50vw + 50%); 
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.footer-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #af8aeb88, transparent);
+    margin: 3rem auto 0;
+    width: 80%;
 }
 
 .footer-content {
@@ -370,3 +412,83 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* Formulário de cadastro */
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 1.5rem auto 3rem; /* centraliza com margem em cima e em baixo */
+    background-color: #1f1233; /* fundo escuro */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #af8aebcc; /* sombra roxa suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .cadastro-form label {
+    color: #d3d3d3;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .cadastro-form input {
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #af8aeb;
+    background-color: #2a1b3d;
+    color: #f0e7ff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cadastro-form input::placeholder {
+    color: #af8aebaa;
+  }
+  
+  .cadastro-form input:focus {
+    border-color: #d87cff;
+    box-shadow: 0 0 8px #d87cff;
+    outline: none;
+  }
+  
+  .cadastro-form button {
+    margin-top: 2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #4e81ee;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.4s ease;
+  }
+
+  .cadastro-form button:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 10px #000000;
+  }
+  
+  .cadastro-form button:hover {
+    background: linear-gradient(45deg, #d87cff, #af8aeb);
+  }
+  
+  /* Responsividade simples */
+  @media (max-width: 480px) {
+    .cadastro-form {
+      max-width: 90%;
+      padding: 1.5rem;
+    }
+  }

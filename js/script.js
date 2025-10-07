@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Renderizar produtos
 function renderProducts() {
     productsGrid.innerHTML = '';
-    
+
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
@@ -123,10 +123,10 @@ function renderProducts() {
 // Adicionar produto ao carrinho
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
-    
+
     // Verificar se o produto já está no carrinho
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
@@ -135,7 +135,7 @@ function addToCart(productId) {
             quantity: 1
         });
     }
-    
+
     updateCart();
     showNotification(`${product.name} adicionado ao carrinho!`);
 }
@@ -151,22 +151,22 @@ function updateCart() {
     // Atualizar contador
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
-    
+
     // Atualizar lista de itens
     cartItems.innerHTML = '';
-    
+
     if (cart.length === 0) {
         cartItems.innerHTML = '<p>Seu carrinho está vazio</p>';
         cartTotal.textContent = '0.00';
         return;
     }
-    
+
     let total = 0;
-    
+
     cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-        
+
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
@@ -179,10 +179,10 @@ function updateCart() {
         `;
         cartItems.appendChild(cartItem);
     });
-    
+
     // Atualizar total
     cartTotal.textContent = total.toFixed(2);
-    
+
     // Adicionar event listeners aos botões de remover
     document.querySelectorAll('.cart-item-remove').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -209,9 +209,9 @@ function showNotification(message) {
         z-index: 1001;
         transition: transform 0.3s, opacity 0.3s;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Remover após 3 segundos
     setTimeout(() => {
         notification.style.transform = 'translateY(20px)';
