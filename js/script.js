@@ -237,3 +237,84 @@ overlay.addEventListener('click', () => {
     cartSidebar.classList.remove('active');
     overlay.classList.remove('active');
 });
+
+ // Seleciona o campo de CEP
+ var campoCep = document.getElementById('cep');
+
+ // Adiciona um "ouvinte" para quando o campo CEP perder o foco (blur)
+ campoCep.addEventListener('blur', function () {
+     // Remove qualquer caractere que não seja número
+     let valorCep = campoCep.value.replace(/\D/g, '');
+
+     // Faz a requisição para a API ViaCEP
+     fetch("https://viacep.com.br/ws/" + valorCep + "/json/")
+         .then(response => response.json()) // Converte a resposta para JSON
+         .then(data => {
+             if (!data.erro) { // Se não houver erro no retorno da API
+                 // Preenche os campos do formulário com os dados recebidos
+                 document.getElementById('logradouro').value = data.logradouro || '';
+                 document.getElementById('bairro').value = data.bairro || '';
+                 document.getElementById('cidade').value = data.localidade || '';
+                 document.getElementById('estado').value = data.uf || '';
+
+                 mudaBorda(0); // Chama função para deixar a borda verde
+             } else {
+                 limpaCampos(); // Limpa os campos se o CEP for inválido
+                 mudaBorda(1); // Borda vermelha
+             }
+         })
+         .catch(error => {
+             console.error("Erro:", error); // Mostra o erro no console
+             limpaCampos(); // Limpa os campos
+             mudaBorda(1); // Borda vermelha
+         });
+ });
+
+ // Função para mudar a cor da borda do campo de CEP
+ function mudaBorda(cor) {
+     if (cor === 1) {
+         campoCep.style.border = '1px solid red'; // Vermelho: erro
+     } else {
+         campoCep.style.border = '1px solid green'; // Verde: sucesso
+     }
+ }
+
+ // Função para limpar os campos do formulário
+ function limpaCampos() {
+     document.getElementById('logradouro').value = '';
+     document.getElementById('bairro').value = '';
+     document.getElementById('cidade').value = '';
+     document.getElementById('estado').value = '';
+ };
+
+ function ConfirmarSenha() {
+    // Pega os valores dos campos
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmarsenha').value;
+
+    // Verifica se são iguais
+    if (senha === confirmarSenha) {
+        alert("As senhas coincidem!");
+        return true; // Pode enviar o formulário
+    } else {
+        alert("As senhas não coincidem!");
+        return false; // Bloqueia envio do formulário
+    }
+};
+
+function toggleSenha(id) {
+    const input = document.getElementById(id);
+    const container = input.nextElementSibling;
+    const olhoAberto = container.querySelector('.olho-aberto');
+    const olhoFechado = container.querySelector('.olho-fechado');
+
+    if (input.type === "password") {
+        input.type = "text";
+        olhoAberto.style.display = "inline";
+        olhoFechado.style.display = "none";
+    } else {
+        input.type = "password";
+        olhoAberto.style.display = "none";
+        olhoFechado.style.display = "inline";
+    }
+}
