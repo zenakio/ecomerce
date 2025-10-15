@@ -466,7 +466,7 @@ footer {
 }
 
 /* Botão moderno com brilho */
-.btn-cadastro {
+#enviar {
     margin-top: 1rem;
     padding: 1rem 2.5rem;
     border: none;
@@ -483,7 +483,7 @@ footer {
     overflow: hidden;
 }
 
-.btn-cadastro::before {
+#enviar::before {
     content: "";
     position: absolute;
     top: 0;
@@ -498,17 +498,17 @@ footer {
     transition: all 0.5s ease;
 }
 
-.btn-cadastro:hover::before {
+#enviar:hover::before {
     left: 125%;
 }
 
-.btn-cadastro:hover {
+#enviar:hover {
     background: linear-gradient(135deg, #d87cff, #af8aeb);
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 0 25px rgba(216, 124, 255, 0.55);
 }
 
-.btn-cadastro:active {
+#enviar:active {
     transform: translateY(0) scale(0.98);
 }
 

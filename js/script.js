@@ -88,15 +88,17 @@ const cartTotal = document.getElementById('cart-total');
 const cartCount = document.getElementById('cart-count');
 
 // Inicializar a página
+if(productsGrid){
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
     updateCart();
 });
+}
 
 // Renderizar produtos
 function renderProducts() {
     productsGrid.innerHTML = '';
-    
+
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
@@ -123,10 +125,10 @@ function renderProducts() {
 // Adicionar produto ao carrinho
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
-    
+
     // Verificar se o produto já está no carrinho
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
@@ -135,7 +137,7 @@ function addToCart(productId) {
             quantity: 1
         });
     }
-    
+
     updateCart();
     showNotification(`${product.name} adicionado ao carrinho!`);
 }
@@ -151,22 +153,22 @@ function updateCart() {
     // Atualizar contador
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
-    
+
     // Atualizar lista de itens
     cartItems.innerHTML = '';
-    
+
     if (cart.length === 0) {
         cartItems.innerHTML = '<p>Seu carrinho está vazio</p>';
         cartTotal.textContent = '0.00';
         return;
     }
-    
+
     let total = 0;
-    
+
     cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-        
+
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
@@ -179,10 +181,10 @@ function updateCart() {
         `;
         cartItems.appendChild(cartItem);
     });
-    
+
     // Atualizar total
     cartTotal.textContent = total.toFixed(2);
-    
+
     // Adicionar event listeners aos botões de remover
     document.querySelectorAll('.cart-item-remove').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -209,9 +211,9 @@ function showNotification(message) {
         z-index: 1001;
         transition: transform 0.3s, opacity 0.3s;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Remover após 3 segundos
     setTimeout(() => {
         notification.style.transform = 'translateY(20px)';
@@ -238,83 +240,39 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('active');
 });
 
- // Seleciona o campo de CEP
- var campoCep = document.getElementById('cep');
 
- // Adiciona um "ouvinte" para quando o campo CEP perder o foco (blur)
- campoCep.addEventListener('blur', function () {
-     // Remove qualquer caractere que não seja número
-     let valorCep = campoCep.value.replace(/\D/g, '');
 
-     // Faz a requisição para a API ViaCEP
-     fetch("https://viacep.com.br/ws/" + valorCep + "/json/")
-         .then(response => response.json()) // Converte a resposta para JSON
-         .then(data => {
-             if (!data.erro) { // Se não houver erro no retorno da API
-                 // Preenche os campos do formulário com os dados recebidos
-                 document.getElementById('logradouro').value = data.logradouro || '';
-                 document.getElementById('bairro').value = data.bairro || '';
-                 document.getElementById('cidade').value = data.localidade || '';
-                 document.getElementById('estado').value = data.uf || '';
+// aula dia 15/10/2025 com Felipe Brang Prada:
+var token = "95707602135c4f01a1445e31ba7973da";
+// Exemplo de requisição GET para listar pessoas
+fetch("https://crudcrud.com/api/" + token + "/pessoas")
+    .then(response => response.json())
+    .then(data => console.log("Lista de pessoas:", data))
+    .catch(error => console.error("Erro no GET:", error));
 
-                 mudaBorda(0); // Chama função para deixar a borda verde
-             } else {
-                 limpaCampos(); // Limpa os campos se o CEP for inválido
-                 mudaBorda(1); // Borda vermelha
-             }
-         })
-         .catch(error => {
-             console.error("Erro:", error); // Mostra o erro no console
-             limpaCampos(); // Limpa os campos
-             mudaBorda(1); // Borda vermelha
-         });
- });
-
- // Função para mudar a cor da borda do campo de CEP
- function mudaBorda(cor) {
-     if (cor === 1) {
-         campoCep.style.border = '1px solid red'; // Vermelho: erro
-     } else {
-         campoCep.style.border = '1px solid green'; // Verde: sucesso
-     }
- }
-
- // Função para limpar os campos do formulário
- function limpaCampos() {
-     document.getElementById('logradouro').value = '';
-     document.getElementById('bairro').value = '';
-     document.getElementById('cidade').value = '';
-     document.getElementById('estado').value = '';
- };
-
- function ConfirmarSenha() {
-    // Pega os valores dos campos
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarsenha').value;
-
-    // Verifica se são iguais
-    if (senha === confirmarSenha) {
-        alert("As senhas coincidem!");
-        return true; // Pode enviar o formulário
-    } else {
-        alert("As senhas não coincidem!");
-        return false; // Bloqueia envio do formulário
-    }
-};
-
-function toggleSenha(id) {
-    const input = document.getElementById(id);
-    const container = input.nextElementSibling;
-    const olhoAberto = container.querySelector('.olho-aberto');
-    const olhoFechado = container.querySelector('.olho-fechado');
-
-    if (input.type === "password") {
-        input.type = "text";
-        olhoAberto.style.display = "inline";
-        olhoFechado.style.display = "none";
-    } else {
-        input.type = "password";
-        olhoAberto.style.display = "none";
-        olhoFechado.style.display = "inline";
-    }
+function cadastrar() {
+    var token = "95707602135c4f01a1445e31ba7973da";
+    // Exemplo de requisição POST para adicionar uma nova pessoa
+    fetch("https://crudcrud.com/api/" + token + "/pessoas", {
+        // metodo de requisição (get, post, put, delete)
+        method: "POST",
+        // cabeçalho da requisição(tipo de conteudo, autorizações, etc...)
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // corpo da requisição (dados que serão enviados)
+        body: JSON.stringify({
+            nome: document.getElementById('nome').value,
+            nascimento: document.getElementById('nascimento').value,
+            endereco: document.getElementById('endereco').value,
+            telefone: document.getElementById('telefone').value
+        })
+    })
+        .then(response => response.json())
+        .then(data => console.log("pessoa criado:", data))
+        .catch(error => alert(error))
+        .finally(() => {
+            // redirecionar para a pagina inicial
+            // window.location.href = "index.php";
+        });
 }
